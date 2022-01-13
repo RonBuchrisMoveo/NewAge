@@ -1,0 +1,30 @@
+.login-container{
+    .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 245px;
+        height: 280px;
+        background-color: $clr7;
+        margin:0 auto;
+        border-radius:5px ;
+        margin-top: 40px;
+        border: 1px #333 solid;
+        .login-header{
+            border-radius:5px 5px 0 0 ;
+            display: flex;
+            background-color: #333;
+            color: $clr7;
+            width: 100%;
+            padding: 13px;
+            justify-content: center;
+            // padding-bottom: 20px;
+        }
+        .form{
+            .submit-btn{
+                background-color: #333;
+                border-radius: 5px;
+            }
+        }
+    }
+}
