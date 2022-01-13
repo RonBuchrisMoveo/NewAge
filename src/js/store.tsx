@@ -8,9 +8,9 @@ export const dataSlice = createSlice({
     name: 'data',
     initialState,
     reducers: {},
-    extraReducers: (builder) => {
-        builder
-    }
+    // extraReducers: (builder) => {
+    //     builder
+    // }
 })
 
 const store = configureStore({
