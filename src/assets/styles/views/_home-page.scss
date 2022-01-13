@@ -1,0 +1,17 @@
+.main-app {
+    max-width:380px;
+    margin:0 auto;
+    @include for-normal-layout {
+      @media (min-width: $narrow-breakpoint) {
+        max-width:960px;
+        display: flex;
+        justify-content: center;
+      }
+    }
+    .main-header{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 60px;
+  }
+  }
