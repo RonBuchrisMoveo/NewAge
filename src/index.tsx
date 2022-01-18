@@ -4,6 +4,7 @@ import {App} from 'App';
 import { Provider } from 'react-redux';
 import store from 'js/store'
 
+import "swiper/css/bundle";
 import 'assets/styles/main.scss';
 
 

@@ -1,6 +1,8 @@
+import { Screen } from 'js/cmps/Screen';
 import { IRootState } from 'js/interfaces/rootState.interface';
 import { IUserLogin } from 'js/interfaces/userLogin.interface';
-import { setLogin } from 'js/store';
+import { AuthService } from 'js/services/AuthService';
+import { setLogin, setQuesFill } from 'js/store';
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from 'react-router';
@@ -8,9 +10,22 @@ import { useHistory } from 'react-router';
 
 export const Login = () => {
     const dispatch = useDispatch()
-    const user = useSelector((state: IRootState) => state.data.user)
+    const history = useHistory()
     const [userName, setUserName] = useState('Moshe@gmail.com')
     const [password, setPassword] = useState('ehjf7wm378')
+    const userQues = useSelector((state:IRootState) => state.data.userQues)
+    
+    useEffect(() => {
+        if(userQues){
+            const quesFill=  AuthService.checkQuesFill(userQues)
+            if(quesFill.length){
+                dispatch(setQuesFill(quesFill))
+                history.push('/update-user-ques')
+            }else{
+                history.push('/result')
+            }
+        }
+    }, [userQues])
 
     const handleChange = ({ target }: any) => {
         (target.name === 'userName') ?

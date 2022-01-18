@@ -17,17 +17,21 @@ body {
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
-
+main{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
 section, main, footer {
-    padding: 5px;
+    // padding: 5px;
 }
 
 img {
-    width: 100%;
+    // width: 100%;
 }
 
 p {
-    margin: 0 0 1em;
+    // margin: 0 0 1em;
 }
 
 a {

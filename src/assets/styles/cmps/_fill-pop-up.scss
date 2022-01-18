@@ -1,32 +1,35 @@
-.login-container{
+.fill-pop-up-container{
     position: fixed;
     top: 50%;
     left: 50%;
     box-shadow: 0 4px 17px 6px #0000001a;
     z-index: 10;
     transform: translate(-50%,-50%);
-    .container{
+    .fill-pop-up{
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 245px;
-        height: 280px;
+        padding: 10px;
         background-color: $clr7;
         border-radius:5px ;
         border: 1px #333 solid;
-        .login-header{
-            border-radius:5px 5px 0 0 ;
-            display: flex;
-            background-color: #333;
-            color: $clr7;
-            width: 100%;
-            padding: 13px;
-            justify-content: center;
+        .warnning{
+
         }
-        .form{
-            .submit-btn{
-                background-color: #333;
-                border-radius: 5px;
+        .pop-up-text{
+
+        }
+        .fill-pop-up-butoon-actions{
+            display: flex;
+            width: 100%;
+            bottom: 0;
+            right: 0;
+            padding: 10px;
+            >button{
+                margin: 4px 2px;
+                padding: 15px 32px;
+                text-align: center;
+                width: 50%;
             }
         }
     }

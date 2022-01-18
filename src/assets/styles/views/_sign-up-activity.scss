@@ -1,0 +1,41 @@
+.activity-sign-up-container{
+    .activity-sign-up{
+        padding: 10px;
+        .sign-up-img{
+            width: 250px;
+            margin-bottom: 20px;
+        }
+        .approve{
+            margin-bottom: 20px;
+            
+        }
+        .middle{
+            margin-bottom: 10px;
+            
+        }
+        .schedulle{
+            
+            margin-bottom: 40px;
+        }
+        .more-info{
+
+        }
+        .contact{
+
+        }
+        .button-actions{
+            display: flex;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            right: 0;
+            padding: 10px;
+            >button{
+                margin: 4px 2px;
+                padding: 15px 32px;
+                text-align: center;
+                width: 50%;
+            }
+        }
+    }
+}
