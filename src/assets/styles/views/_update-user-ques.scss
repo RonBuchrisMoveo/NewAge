@@ -1,0 +1,19 @@
+
+.questions-container{
+.all-questions{
+    padding: 10px;
+    .ques-fill-action{
+        display: flex;
+        width: 100%;
+        bottom: 0;
+        right: 0;
+        padding: 10px;
+        >button{
+            margin: 4px 2px;
+            padding: 15px 32px;
+            text-align: center;
+            width: 100%;
+        }
+    }
+    }
+}

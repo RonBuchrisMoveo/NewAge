@@ -1,4 +1,72 @@
 .main-app {
-    max-width:380px;
     margin:0 auto;
+    height: 100%;
+    .main-app-container{
+      display: flex;
+    flex-direction: column;
+    height: 100%;
+    flex: 1;
+    justify-content: space-between;
+      .who-we-are{
+        background-color: #587CA2;
+        p{
+          padding: 10px;
+          color:$clr7;
+          span{
+            font-weight: bold;
+            
+          }
+        }
+      }
+      .collaborations-container{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 10px;
+        margin:40px 0px 40px 0px;
+        img{
+          width: 100px;
+          height: 80px;
+          // object-fit: cover;
+        }
+      }
+      .reviews-container{
+        display: flex;
+        padding: 10px;
+        background-color: rgb(238, 125, 144);
+        // position: absolute;
+        bottom: 0;
+        .review-container{
+          padding-right:20px;
+          flex: 1;
+          img{
+            width: 100px;
+          height: 80px;
+
+          }
+          .review{
+            p{
+
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+  .screen{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    inset: 0;
+    cursor: default;
+    z-index: 5;
+      background-color: #292f4c8e;
+  }
+
+  .app-container{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
   }
