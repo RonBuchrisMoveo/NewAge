@@ -15,10 +15,17 @@
 // Views
 @import "views/home-page";
 @import "views/login-page";
+@import "views/user-result-page";
+@import "views/user-activity-page";
+@import "views/sign-up-activity";
+@import "views/update-user-ques";
 
 
 // Components
 @import "cmps/app-header";
+@import "cmps/ques-fill-list";
+@import "cmps/fill-pop-up";
+@import "cmps/loader";
 
 
 

@@ -1,0 +1,41 @@
+.activity-container{
+    // margin: 0 auto;
+   .activity{
+       padding: 10px;
+       .title{
+           margin-bottom: 20px;
+           
+        }
+        .activity-img{
+            width: 250px;
+            margin-bottom: 20px;
+        }
+        .short-des{
+            margin-bottom: 20px;
+        }
+        .long-des{
+            margin-bottom: 20px;
+            
+        }
+        .activity-web{
+            a{
+                color:#2d49d6;
+            }
+            
+        }
+        .button-actions{
+            display: flex;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            right: 0;
+            padding: 10px;
+            >button{
+                margin: 4px 2px;
+                padding: 15px 32px;
+                text-align: center;
+                width: 50%;
+            }
+        }
+    }
+}
