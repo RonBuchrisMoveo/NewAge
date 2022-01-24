@@ -1,8 +1,8 @@
 export interface IUserQues{
         UserId: string
-        HowLongTime: number
+        HowLongTime: number[]
         FreeHoursDay: number[]
-        WeekendActivities: number
+        WeekendActivities: number[]
         Mobility: number[]
         Hobbies: number[]
         ActivityType: number[]
@@ -12,5 +12,5 @@ export interface IUserQues{
         Accessibility: number[]
         EmploymentIntrest: number[]
         languge : number[]
-        Gender : number 
+        Gender : number []
 }

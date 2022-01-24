@@ -2,7 +2,7 @@ import { FillPopUp } from 'js/cmps/FillPopUp'
 import { IRootState } from 'js/interfaces/rootState.interface'
 import { IUserQues } from 'js/interfaces/userQues.interface'
 import { setUserQues } from 'js/store'
-import React, { useState } from 'react'
+import React, { ChangeEventHandler, useState } from 'react'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router'
@@ -15,7 +15,7 @@ export const QuesFill = (props: { userQues: IUserQues }) => {
     const [ques, setQues] = useState<IUserQues>(userQues)
     const [isFillPopUp, setIsFillPopUp] = useState(false)
     
-    const handleChange=({target}: any)=>{
+    const handleChange=({target}:any)=>{
         let name:string = target.name
         let type:string =target.type
         const value:number = +(target.value)
@@ -34,12 +34,11 @@ export const QuesFill = (props: { userQues: IUserQues }) => {
                 currUserQues[name]=arr
                 setQues(currUserQues)        
             }else{
-                currUserQues[name]=value
+                currUserQues[name]=[value]
                 setQues(currUserQues)
             }
         }
     }
-
     const checkTheQues=(ques:IUserQues)=>{
         const allFill:boolean = isFill(ques)
         if(allFill){
@@ -66,12 +65,11 @@ export const QuesFill = (props: { userQues: IUserQues }) => {
 
     const isFill =(ques:IUserQues)=>{
         const answers = Object.values(ques)
-        const isAllFill:boolean = answers.every((answer:number[]|number)=>{
-            return answer!==0
+        const isAllFill:boolean = answers.every((answer:number[])=>{
+            return answer.length
         })
         return isAllFill
     }
-    
     return (
         <div className='questions-container'>
         <div className='all-questions'>
@@ -80,11 +78,11 @@ export const QuesFill = (props: { userQues: IUserQues }) => {
                 handleChange(e)}}>
             <div className="question-1">
                 <h4 className={`HowLongTime ${quesFill.includes('HowLongTime') && 'not-fill'}`}>כמה זמן פנוי תרצה/י להקצות עבור הפעילויות</h4>
-                <p><input name='HowLongTime' type='radio' className='ques1' onChange={(e) => handleChange(e)} value={1} checked={(ques['HowLongTime']===1) ? true : false}  />פעם או פעמיים בחודש</p>
-                <p><input name='HowLongTime' type='radio' className='ques1' onChange={(e) => handleChange(e)} value={2} checked={(ques['HowLongTime']===2) ? true : false} />פעם השבוע</p>
-                <p><input name='HowLongTime' type='radio' className='ques1' onChange={(e) => handleChange(e)} value={3} checked={(ques['HowLongTime']===3) ? true : false} />פעמיים בשבוע</p>
-                <p><input name='HowLongTime' type='radio' className='ques1' onChange={(e) => handleChange(e)} value={4} checked={(ques['HowLongTime']===4) ? true : false} />3 פעמים בשבוע</p>
-                <p><input name='HowLongTime' type='radio' className='ques1' onChange={(e) => handleChange(e)} value={5} checked={(ques['HowLongTime']===5) ? true : false} />יותר מ 3 פעמים</p>
+                <p><input name='HowLongTime' type='radio' className='ques1' onChange={(e) => handleChange(e)} value={1} checked={(ques['HowLongTime'].includes(1)) ? true : false}  />פעם או פעמיים בחודש</p>
+                <p><input name='HowLongTime' type='radio' className='ques1' onChange={(e) => handleChange(e)} value={2} checked={(ques['HowLongTime'].includes(2)) ? true : false} />פעם השבוע</p>
+                <p><input name='HowLongTime' type='radio' className='ques1' onChange={(e) => handleChange(e)} value={3} checked={(ques['HowLongTime'].includes(3)) ? true : false} />פעמיים בשבוע</p>
+                <p><input name='HowLongTime' type='radio' className='ques1' onChange={(e) => handleChange(e)} value={4} checked={(ques['HowLongTime'].includes(4)) ? true : false} />3 פעמים בשבוע</p>
+                <p><input name='HowLongTime' type='radio' className='ques1' onChange={(e) => handleChange(e)} value={5} checked={(ques['HowLongTime'].includes(5)) ? true : false} />יותר מ 3 פעמים</p>
             </div>
             <div className="question-2">
                 <h4 className={`FreeHoursDay ${quesFill.includes('FreeHoursDay') && 'not-fill'}`}>שעות פנויות ביממה</h4>
@@ -94,8 +92,8 @@ export const QuesFill = (props: { userQues: IUserQues }) => {
             </div>
             <div className="question-3">
                 <h4 className={`WeekendActivities ${quesFill.includes('WeekendActivities') && 'not-fill'}`}>פעילויות בסופ"ש</h4>
-                <p><input name='WeekendActivities' type='radio' className='ques3' value={10} onChange={(e) => handleChange(e)} checked={(ques['WeekendActivities']===10) ? true : false}  />לא מתאים</p>
-                <p><input name='WeekendActivities' type='radio' className='ques3' value={11} onChange={(e) => handleChange(e)} checked={(ques['WeekendActivities']===11) ? true : false} />מתאים</p>
+                <p><input name='WeekendActivities' type='radio' className='ques3' value={10} onChange={(e) => handleChange(e)} checked={(ques['WeekendActivities'].includes(10)) ? true : false}  />לא מתאים</p>
+                <p><input name='WeekendActivities' type='radio' className='ques3' value={11} onChange={(e) => handleChange(e)} checked={(ques['WeekendActivities'].includes(11)) ? true : false} />מתאים</p>
             </div>
             <div className="question-4">
                 <h4 className={`Mobility ${quesFill.includes('Mobility') && 'not-fill'}`}>כיצד הינך מתנייד ביום יום</h4>
@@ -181,9 +179,9 @@ export const QuesFill = (props: { userQues: IUserQues }) => {
             </div>
             <div className="question-12">
                 <h4 className={`Gender ${quesFill.includes('Gender') && 'not-fill'}`}>העדפות מגדר</h4>
-                <p><input name='Gender' type='radio' className='ques12' onChange={(e) => handleChange(e)} value={70} checked={(ques['Gender']===70) ? true : false} />לא משנה לי</p>
-                <p><input name='Gender' type='radio' className='ques12' onChange={(e) => handleChange(e)} value={71} checked={(ques['Gender']===71) ? true : false} />נשים בלבד</p>
-                <p><input name='Gender' type='radio' className='ques12' onChange={(e) => handleChange(e)} value={72} checked={(ques['Gender']===72) ? true : false} />גברים בלבד</p>
+                <p><input name='Gender' type='radio' className='ques12' onChange={(e) => handleChange(e)} value={70} checked={(ques['Gender'].includes(70)) ? true : false} />לא משנה לי</p>
+                <p><input name='Gender' type='radio' className='ques12' onChange={(e) => handleChange(e)} value={71} checked={(ques['Gender'].includes(71)) ? true : false} />נשים בלבד</p>
+                <p><input name='Gender' type='radio' className='ques12' onChange={(e) => handleChange(e)} value={72} checked={(ques['Gender'].includes(72)) ? true : false} />גברים בלבד</p>
             </div>
             <div className="question-13">
                 <h4 className={`languge ${quesFill.includes('languge') && 'not-fill'}`}>שפות</h4>

@@ -4,6 +4,7 @@ import { IInitialState } from "js/interfaces/initialState.interface";
 import { IUser } from "js/interfaces/user.interface";
 import { IUserActivity } from "js/interfaces/userActivity.interface";
 import { IUserLogin } from "js/interfaces/userLogin.interface";
+import { ISortResult } from "js/interfaces/userOption.interface";
 import { IUserQues } from "js/interfaces/userQues.interface";
 import { IUserResult } from "js/interfaces/userResult";
 import { AuthService } from "js/services/AuthService";
@@ -24,7 +25,7 @@ export const setLogout = createAsyncThunk('data/setLogout',async ()=>{
     return null
 })
 export const setUserQues = createAsyncThunk('data/setUserQues',async (ques:IUserQues)=>{
-    const data:IUserResult = await AuthService.updateUserQues(ques)
+    const data:ISortResult = await AuthService.updateUserQues(ques)
     return data
 })
 export const setActivityToShow = createAsyncThunk('data/setActivityToShow',async (ActivityToShow:IActivityToShow)=>{

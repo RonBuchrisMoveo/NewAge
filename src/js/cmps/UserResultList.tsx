@@ -1,19 +1,18 @@
 import { UserResultPreview } from 'js/cmps/UserResultPreview'
+import { IUserResult } from 'js/interfaces/userResult'
 import React from 'react'
 
 
-export const UserResultList = (props:{result:any,userId:string}) => {
+export const UserResultList = (props:{result:IUserResult,userId:string}) => {
     const {result,userId} = props
-    const options:any =Object.entries(result)
-
+    const options =Object.entries(result)
     return (
         <div className='result'>
-            {options.map((option:any)=>{
+            {options.map((option:[string,object[]],idx:number)=>{
                 const optionName= option[0].toLowerCase()
                 const optionDetail = option[1]
-                return optionDetail.map((activities:any,idx:number)=>{
-                    return <UserResultPreview userId={userId} optionName={optionName} activities={activities} key={idx}/>
-                })
+                if(!optionDetail.length) return
+                    return <UserResultPreview userId={userId} optionName={optionName} activities={optionDetail} key={idx}/>
             })}   
         </div>
     )

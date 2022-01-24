@@ -14,9 +14,11 @@ export const UserResultPreview = (props: { activities: any, userId: string, opti
     const options: any = Object.entries(activities)
     const dispatch = useDispatch()
     const history = useHistory()
+    const IMG_DIF ='https://ggsc.s3.amazonaws.com/images/made/images/uploads/The_Science-Backed_Benefits_of_Being_a_Dog_Owner_600_400_int_c1-2x.jpg'
 
 
-    const onChooseActivity = (optionId: number) => {
+    const onChooseActivity = (optionId: string) => {
+        console.log(`optionId`, optionId)
         const activityToShow:IActivityToShow ={
             UserId:userId,
             ActivityID:optionId
@@ -34,11 +36,12 @@ export const UserResultPreview = (props: { activities: any, userId: string, opti
                 {options.map((option: any, idx: number) => {
                     const optionName = option[0]
                     const optionDetail = option[1]
+                    console.log(`optionDetail`, optionDetail)
                     return (
-                        <SwiperSlide>
-                        <div className={optionName} key={idx} onClick={() => onChooseActivity(optionDetail.Id)}>
-                            <img className='activity-img' src='https://ggsc.s3.amazonaws.com/images/made/images/uploads/The_Science-Backed_Benefits_of_Being_a_Dog_Owner_600_400_int_c1-2x.jpg' alt="" />
-                            <div className="activity-name">{optionDetail.Name}</div>
+                        <SwiperSlide key={idx}>
+                        <div className={optionName} key={idx} onClick={() => onChooseActivity(optionDetail.ActivityId.toString())}>
+                            <img className='activity-img' src={optionDetail.Image ? optionDetail.Image:IMG_DIF} alt="" />
+                            <div className="activity-name">{optionDetail.Name1}</div>
                         </div>
                         </SwiperSlide>
                     )

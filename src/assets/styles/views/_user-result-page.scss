@@ -43,7 +43,10 @@
             display: flex;
             flex-direction: column;
                .activity-img{
+                // width: 100px;
                 width: 100px;
+    height: 66.66px;
+    object-fit: contain;
                }
                .activity-name{
 

@@ -1,12 +1,11 @@
 
 export interface IUser{
-    Address?: string
-    City?: string
-    Phone?: string
-    age?: number
-    country?: string
-    education?: string
-    email?: string
+    Address: string
+    City: string
+    phone: string
+    age: number
+    country: string
+    email: string
     id: number
-    name?: string
+    name: string
 }
