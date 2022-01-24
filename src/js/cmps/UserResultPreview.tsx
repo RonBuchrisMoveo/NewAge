@@ -28,8 +28,8 @@ export const UserResultPreview = (props: { activities: any, userId: string, opti
 
     return (
         <div className={optionName}>
-            <div className="title-activities">{(optionName === 'matchs' ? '' : (optionName === 'intrest') ? 'אפשרויות נוספות:' : 'אולי יעניין אותך גם:')}</div>
-            <Swiper slidesPerView={2} watchSlidesProgress={true} pagination={{
+            <div className="title-activities">{(optionName === 'matchs' ? 'במיוחד בשבילך!' : (optionName === 'intrest') ? 'אפשרויות נוספות' : 'אולי יעניין אותך גם')}</div>
+            <Swiper slidesPerView={2} width={220} spaceBetween={10} watchSlidesProgress={true} pagination={{
                 "clickable": true
             }} className="options">
                 {options.map((option: any, idx: number) => {

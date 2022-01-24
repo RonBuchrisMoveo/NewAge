@@ -11,7 +11,6 @@ export const UserResult = () => {
     if (!userResult) return <Loader />
     return (
         <div className='results-container'>
-            <h3 className="title-container">{userResult.name}, מצאנו עבורך היום:</h3>
             {userResult.results.map((result: any, idx: number) => {
                 return <UserResultList userId={user.id.toString()} result={result} key={idx} />
             })}

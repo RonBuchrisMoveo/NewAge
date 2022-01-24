@@ -10,10 +10,7 @@ export const UpdateUserQues = () => {
     const userQues = useSelector((state: IRootState) => state.data.userQues)
 
     return (
-        <div className='user container'>
-            <div className='personal-information'>
-                <h3>שלום, {user.name}</h3>
-            </div>
+        <div className='user-container'>
             <div className="questions">
                 <QuesFill userQues={userQues}/>
             </div>

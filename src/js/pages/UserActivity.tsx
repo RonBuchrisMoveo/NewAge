@@ -25,16 +25,18 @@ export const UserActivity = () => {
     return (
         <div className='activity-container'>
             <div className="activity ">
-                <h3 className="title">להלן מידע נוסף על {userActivity[0].Name}:</h3>
                 <img className='activity-img' src={userActivity[0].Image ? userActivity[0].Image :IMG_DIF } alt='' />
+                <div className="activity-des">
+
+                <h3 className="title">{userActivity[0].Name}</h3>
                 <div className="short-des">{userActivity[0]['Short Description']}</div>
                 <div className="fit-exp">{userActivity[0]['Fit Explanation']}</div>
                 <div className="long-des">{userActivity[0]['Long Description']}</div>
                 <div className="loc">ב{userActivity[0]['Location Description']}</div>
-                <div className="activity-web"><a href={userActivity[0]['Web Site'] } target="_blank">לאתר הפעילות</a></div>
                 <div className="button-actions">
                     <button className="forward" onClick={() => history.push('/result')}>חזרה</button>
                     <button className="approve" onClick={() => addUserActivity(userActivity[0].ActivityId)}>להרשמה</button>
+                </div>
                 </div>
             </div>
         </div>

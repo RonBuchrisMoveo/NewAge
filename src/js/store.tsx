@@ -57,6 +57,7 @@ export const dataSlice = createSlice({
             state.user = action.payload
             state.userQues = action.payload
             state.quesFill = action.payload
+            state.userResult = action.payload
         })
         .addCase(setUserQues.fulfilled, (state, action)=>{
             state.userResult=action.payload 

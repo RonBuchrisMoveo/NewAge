@@ -6,11 +6,14 @@ import { setLogin, setQuesFill, setUserQues } from 'js/store';
 import React, { ChangeEventHandler, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from 'react-router';
+import { ReactComponent as Logo } from 'assets/imgs/logo.svg'
 
 
 export const Login = () => {
     const dispatch = useDispatch()
     const history = useHistory()
+    // const [userName, setUserName] = useState('')
+    // const [password, setPassword] = useState('')
     const [userName, setUserName] = useState('Ekatz@gmail.com')
     const [password, setPassword] = useState('123')
     const userQues = useSelector((state: IRootState) => state.data.userQues)
@@ -44,12 +47,11 @@ export const Login = () => {
     return (
         <div className='login-container'>
             <div className="container">
-                <div className="login-header">כניסה</div>
+                <div className="login-header"><Logo/></div>
                 <form className='form' onSubmit={(e) => {
                     e.preventDefault()
                     onLogin()
                 }}>
-                    <div className="username">שם משתמש</div>
                     <input
                         className='userName'
                         type='text'
@@ -59,7 +61,6 @@ export const Login = () => {
                         value={userName}
                         onChange={(e) => handleChange(e)}
                     />
-                    <div className="password">סיסמה</div>
                     <input
                         className='password'
                         type='password'
@@ -69,7 +70,7 @@ export const Login = () => {
                         value={password}
                         onChange={(e) => handleChange(e)}
                     />
-                    <button className='submit-btn' type="submit" onSubmit={onLogin} >כניסה</button>
+                    <button className='submit-btn' type="submit" onSubmit={onLogin} >המשך</button>
                 </form>
             </div>
         </div>
