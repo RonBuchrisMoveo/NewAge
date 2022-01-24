@@ -32,6 +32,10 @@ export const setActivityToShow = createAsyncThunk('data/setActivityToShow',async
     const data:IUserActivity = await AuthService.getActivityToShow(ActivityToShow)
     return data
 })
+export const setAddUserActivity = createAsyncThunk('data/setAddUserActivity',async (addActivity:any)=>{
+    const data:IUserActivity = await AuthService.addUserActivity(addActivity)
+    return data
+})
 
 
 export const dataSlice = createSlice({
@@ -60,6 +64,8 @@ export const dataSlice = createSlice({
         .addCase(setActivityToShow.fulfilled, (state, action)=>{
             state.userActivity=action.payload 
             
+        })
+        .addCase(setAddUserActivity.fulfilled, (state, action)=>{
         })
     }
 })

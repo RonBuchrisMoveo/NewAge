@@ -14,7 +14,8 @@ export const AuthService = {
   login,
   checkQuesFill,
   updateUserQues,
-  getActivityToShow
+  getActivityToShow,
+  addUserActivity
 }
 
 async function login(user: IUserLogin): Promise<{currUser:IUser,currQues:IUserQues}> {
@@ -63,6 +64,15 @@ async function getUserResult(userId:string):Promise<ISortResult>{
   const {data} = await axios.post(`${NEW_BASE_URL}GetUserResult`, user)
 const sortResult = await sortUserResult(data)
   return sortResult
+}
+
+async function addUserActivity(addActivity:any):Promise<any>{
+  try{
+    const {data} = await axios.post(`${NEW_BASE_URL}AddUserActivity`, addActivity)
+    return data
+  }catch(err){
+   return err
+  }
 }
 
 

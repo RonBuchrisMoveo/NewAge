@@ -1,16 +1,27 @@
 import { IRootState } from 'js/interfaces/rootState.interface'
 import { Loader } from 'js/services/Loader'
+import { setAddUserActivity } from 'js/store'
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router'
 
 export const UserActivity = () => {
+    const dispatch = useDispatch()
     const userActivity = useSelector((state: IRootState) => state.data.userActivity)
+    const user = useSelector((state: IRootState) => state.data.user)
     const history = useHistory()
     const IMG_DIF = 'https://ggsc.s3.amazonaws.com/images/made/images/uploads/The_Science-Backed_Benefits_of_Being_a_Dog_Owner_600_400_int_c1-2x.jpg'
 
+    const addUserActivity=(activityId:number)=>{
+        const addActivity={
+            UserId:user.id.toString(),
+            ActivityID:activityId.toString()
+        }
+        dispatch(setAddUserActivity(addActivity))
+        history.push('/sign-up-activity')
+    }
+
     if (!userActivity) return <Loader />
-    console.log(`userActivity`, userActivity)
     return (
         <div className='activity-container'>
             <div className="activity ">
@@ -23,7 +34,7 @@ export const UserActivity = () => {
                 <div className="activity-web"><a href={userActivity[0]['Web Site'] } target="_blank">לאתר הפעילות</a></div>
                 <div className="button-actions">
                     <button className="forward" onClick={() => history.push('/result')}>חזרה</button>
-                    <button className="approve" onClick={() => history.push('/sign-up-activity')}>להרשמה</button>
+                    <button className="approve" onClick={() => addUserActivity(userActivity[0].ActivityId)}>להרשמה</button>
                 </div>
             </div>
         </div>

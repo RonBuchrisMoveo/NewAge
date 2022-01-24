@@ -18,7 +18,6 @@ export const UserResultPreview = (props: { activities: any, userId: string, opti
 
 
     const onChooseActivity = (optionId: string) => {
-        console.log(`optionId`, optionId)
         const activityToShow:IActivityToShow ={
             UserId:userId,
             ActivityID:optionId
@@ -36,7 +35,6 @@ export const UserResultPreview = (props: { activities: any, userId: string, opti
                 {options.map((option: any, idx: number) => {
                     const optionName = option[0]
                     const optionDetail = option[1]
-                    console.log(`optionDetail`, optionDetail)
                     return (
                         <SwiperSlide key={idx}>
                         <div className={optionName} key={idx} onClick={() => onChooseActivity(optionDetail.ActivityId.toString())}>
