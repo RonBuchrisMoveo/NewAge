@@ -8,6 +8,7 @@ export const Screen = () => {
 
     useEffect(() => {
         if(location.pathname==='/login') setScreen(true)
+        else setScreen(false)
     }, [location.pathname])
 
     const toggleModal = () => {

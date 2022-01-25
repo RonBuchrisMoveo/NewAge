@@ -25,7 +25,6 @@ export function AppHeader() {
     }
 
     const getHeader=()=>{
-        console.log(`user`, user)
         if(userResult) return setHeader(`${user?.name}, מצאנו עבורך היום:`)
         else if(user) return setHeader(`שלום ${user?.name}`)
         else return setHeader('ברוכים הבאים')

@@ -7,15 +7,17 @@ import React, { ChangeEventHandler, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from 'react-router';
 import { ReactComponent as Logo } from 'assets/imgs/logo.svg'
+import { Loader } from 'js/services/Loader';
 
 
 export const Login = () => {
     const dispatch = useDispatch()
     const history = useHistory()
-    // const [userName, setUserName] = useState('')
-    // const [password, setPassword] = useState('')
-    const [userName, setUserName] = useState('Ekatz@gmail.com')
-    const [password, setPassword] = useState('123')
+    const [loader, setLoader] = useState(false);
+    const [userName, setUserName] = useState('')
+    const [password, setPassword] = useState('')
+    // const [userName, setUserName] = useState('Ekatz@gmail.com')
+    // const [password, setPassword] = useState('123')
     const userQues = useSelector((state: IRootState) => state.data.userQues)
 
     useEffect(() => {
@@ -28,6 +30,7 @@ export const Login = () => {
                 dispatch(setUserQues(userQues))
                 history.push('/result')
             }
+            setLoader(true)
         }
     }, [userQues])
 
@@ -37,6 +40,7 @@ export const Login = () => {
             setPassword(target.value)
     }
     const onLogin = () => {
+        setLoader(true)
         const user: IUserLogin = {
             User: userName,
             password: password
@@ -44,7 +48,7 @@ export const Login = () => {
         dispatch(setLogin(user))
     }
 
-    return (
+    return loader ? <Loader/> : (
         <div className='login-container'>
             <div className="container">
                 <div className="login-header"><Logo/></div>

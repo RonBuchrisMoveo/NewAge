@@ -1,9 +1,10 @@
 import { IRootState } from 'js/interfaces/rootState.interface'
+import { SignUpActivity } from 'js/pages/SignUpActivity'
 import { Loader } from 'js/services/Loader'
 import { setAddUserActivity } from 'js/store'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useHistory } from 'react-router'
+import { Route, useHistory } from 'react-router'
 
 export const UserActivity = () => {
     const dispatch = useDispatch()
