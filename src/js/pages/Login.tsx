@@ -15,10 +15,10 @@ export const Login = () => {
     const dispatch = useDispatch()
     const history = useHistory()
     const [loader, setLoader] = useState(false);
-    // const [userName, setUserName] = useState('')
-    // const [password, setPassword] = useState('')
-    const [userName, setUserName] = useState('Ekatz@gmail.com')
-    const [password, setPassword] = useState('123')
+    const [userName, setUserName] = useState('')
+    const [password, setPassword] = useState('')
+    // const [userName, setUserName] = useState('Ekatz@gmail.com')
+    // const [password, setPassword] = useState('123')
     const userQues = useSelector((state: IRootState) => state.data.userQues)
 
     useEffect(() => {
