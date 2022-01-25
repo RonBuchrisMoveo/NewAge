@@ -25,7 +25,7 @@ async function login(user: IUserLogin): Promise<{currUser:IUser,currQues:IUserQu
     const currQues = await (await axios.post(`${NEW_BASE_URL}GetUserQuestionnaire`, userId)).data
     for(const key in currQues){
       if(key ==='UserId') continue 
-      if(currQues[key]===''||currQues[key]==='71'){
+      if(currQues[key]===''||currQues[key]==='70'){
         currQues[key]=[]
       }else{
         const answer = JSON.parse(currQues[key])

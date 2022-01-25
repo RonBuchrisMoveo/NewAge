@@ -18,7 +18,7 @@ export const App =()=> {
           <AppHeader/>
       <main>
           <Switch>
-          <Route path='/sign-up-activity'>{<SignUpActivity/>}</Route>
+          {/* <Route path='/sign-up-activity'>{<SignUpActivity/>}</Route> */}
           <Route path="/activity">{<UserActivity/>}</Route>
           <Route path="/result">{<UserResult/>}</Route>
           <Route path="/update-user-ques">{<UpdateUserQues/>}</Route>

@@ -1,3 +1,4 @@
+import { Screen } from 'js/cmps/Screen'
 import { IRootState } from 'js/interfaces/rootState.interface'
 import { SignUpActivity } from 'js/pages/SignUpActivity'
 import { Loader } from 'js/services/Loader'
@@ -19,16 +20,16 @@ export const UserActivity = () => {
             ActivityID:activityId.toString()
         }
         dispatch(setAddUserActivity(addActivity))
-        history.push('/sign-up-activity')
+        history.push('/activity/sign-up-activity')
     }
 
     if (!userActivity) return <Loader />
     return (
         <div className='activity-container'>
+            <Screen/>
             <div className="activity ">
                 <img className='activity-img' src={userActivity[0].Image ? userActivity[0].Image :IMG_DIF } alt='' />
                 <div className="activity-des">
-
                 <h3 className="title">{userActivity[0].Name}</h3>
                 <div className="short-des">{userActivity[0]['Short Description']}</div>
                 <div className="fit-exp">{userActivity[0]['Fit Explanation']}</div>
@@ -40,6 +41,7 @@ export const UserActivity = () => {
                 </div>
                 </div>
             </div>
+            <Route path="/activity/sign-up-activity" component={SignUpActivity} />  
         </div>
     )
 }

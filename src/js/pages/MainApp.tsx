@@ -7,10 +7,23 @@ import { ReactComponent as Logo } from 'assets/imgs/logo.svg'
 import iai from 'assets/imgs/iai.svg'
 import elal from 'assets/imgs/elal.svg'
 import poalim from 'assets/imgs/poalim.svg'
+import { useSelector } from 'react-redux'
+import { IRootState } from 'js/interfaces/rootState.interface'
 
 
 export const MainApp = () => {
     const history = useHistory()
+    const user = useSelector((state:IRootState) => state.data.user)
+
+const getButtonName=()=>{
+    if(user) return 'לפעילויות'
+    else return 'יאללה מתחילים'
+}
+const getButtonPath=()=>{
+    if(user) return history.push('/result')
+    else return history.push('/login')
+}
+
     return (
         <div className='main-app'>
             <Screen />
@@ -45,8 +58,8 @@ export const MainApp = () => {
                         </div>
                     </div>
                     <div className="action">
-                        <div className="login" onClick={() => history.push('/login')}>
-                            יאללה מתחילים!
+                        <div className="login" onClick={() => getButtonPath()}>
+                            {getButtonName()}
                         </div>
                     </div>
                 </div>
@@ -56,7 +69,7 @@ export const MainApp = () => {
                     <img src={elal} alt="" />
                 </div>
             </div>
-            <Route path="/login" component={Login} />                
+            <Route path="/login" component={Login} />               
         </div>
     )
 }

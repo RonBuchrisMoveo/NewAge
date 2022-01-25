@@ -1,41 +1,54 @@
 .activity-sign-up-container{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    box-shadow: 0 4px 17px 6px #0000001a;
+    z-index: 10;
+    transform: translate(-50%,-50%);
+    background-color: $clr6;
+    border-radius: 5px;
+    height: 60%;
+    width: 75%;
     .activity-sign-up{
-        padding: 10px;
-        .sign-up-img{
-            width: 250px;
-            margin-bottom: 20px;
+        display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+        padding: 35px 12px;
+        .logo{
+            margin-bottom: 25px;
+        }
+        .divider{
+            width: 132px;
+            border: 1px solid $clr2;
+            margin-bottom: 15px;
         }
         .approve{
-            margin-bottom: 20px;
-            
+            margin-bottom: 25px;
+            color: $clr1;
+            font-family: heebo-bold;
+            font-size: rem(33px);
         }
         .middle{
-            margin-bottom: 10px;
-            
+            font-size: rem(20px);
+            color: $clr2;
+            margin-bottom: 15px;
+            font-family: heebo-bold;
         }
-        .schedulle{
-            
-            margin-bottom: 40px;
+        .schedulle,
+        .activity-day,
+        .activity-hours{
+            font-size: rem(20px);
+            color: $clr1;
         }
-        .more-info{
-
+        .activity-hours{
+            margin-bottom: 15px;
         }
+        .more-info,
         .contact{
-
-        }
-        .button-actions{
-            display: flex;
-            position: absolute;
-            width: 100%;
-            bottom: 0;
-            right: 0;
-            padding: 10px;
-            >button{
-                margin: 4px 2px;
-                padding: 15px 32px;
-                text-align: center;
-                width: 50%;
-            }
+            color: $clr1;
+            font-family: heebo-bold;
+            font-size: rem(16px);
         }
     }
 }

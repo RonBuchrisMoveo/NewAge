@@ -7,7 +7,7 @@ export const Screen = () => {
     const [screen, setScreen] = useState(false)
 
     useEffect(() => {
-        if(location.pathname==='/login') setScreen(true)
+        if(location.pathname==='/login'|| location.pathname===('/activity/sign-up-activity')) setScreen(true)
         else setScreen(false)
     }, [location.pathname])
 
