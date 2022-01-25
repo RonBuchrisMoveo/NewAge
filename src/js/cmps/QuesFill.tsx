@@ -18,8 +18,8 @@ export const QuesFill = (props: { userQues: IUserQues }) => {
     const [isFillPopUp, setIsFillPopUp] = useState(false)
     
     const handleChange=({target}:any)=>{
-        let name:string = target.name
-        let type:string =target.type
+        const name:string = target.name
+        const type:string =target.type
         const value:number = +(target.value)
         const currUserQues:any= {...ques}
         if(name==='questions'){
@@ -27,7 +27,7 @@ export const QuesFill = (props: { userQues: IUserQues }) => {
         }else{
             if(type==='checkbox'){
                 const idx = getIdx(value,currUserQues[name])
-                let arr = [...currUserQues[name]]
+                const arr = [...currUserQues[name]]
                 if(currUserQues[name].includes(value)){
                     arr.splice(idx,1)
                 }else{

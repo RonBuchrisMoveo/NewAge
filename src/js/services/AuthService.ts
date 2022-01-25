@@ -28,7 +28,7 @@ async function login(user: IUserLogin): Promise<{currUser:IUser,currQues:IUserQu
       if(currQues[key]===''||currQues[key]==='71'){
         currQues[key]=[]
       }else{
-        let answer = JSON.parse(currQues[key])
+        const answer = JSON.parse(currQues[key])
         if(typeof answer === 'number'){
           currQues[key]=[answer]
         }else{

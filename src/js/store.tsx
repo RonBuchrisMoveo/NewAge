@@ -66,8 +66,8 @@ export const dataSlice = createSlice({
             state.userActivity=action.payload 
             
         })
-        .addCase(setAddUserActivity.fulfilled, (state, action)=>{
-        })
+        // .addCase(setAddUserActivity.fulfilled, (state, action)=>{
+        // })
     }
 })
 
