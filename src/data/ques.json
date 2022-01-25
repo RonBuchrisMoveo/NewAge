@@ -1,0 +1,398 @@
+[
+    {
+        "title":"כמה זמן פנוי תרצה/י להקצות עבור הפעילויות",
+        "name":"HowLongTime",
+        "type":"radio",
+        "answers":[
+            {
+                "title":"פעם או פעמיים בחודש",
+                "value":1
+            },
+            {
+                "title":"פעם השבוע",
+                "value":2
+            },
+            {
+                "title":"פעמיים בשבוע",
+                "value":3
+            },
+            {
+                "title":"3 פעמים בשבוע",
+                "value":4
+            },
+            {
+                "title":"יותר מ 3 פעמים",
+                "value":5
+            }
+        ]
+    },
+    {
+        "title":"שעות פנויות ביממה",
+        "name":"FreeHoursDay",
+        "type":"checkbox",
+        "answers":[
+            {
+                "title":"שעות הבוקר",
+                "value":7
+            },
+            {
+                "title":"שעות אחהצ",
+                "value":8
+            },
+            {
+                "title":"שעות הערב",
+                "value":9
+            }
+        ]
+    },
+    {
+        "title":"פעילויות בסופש",
+        "name":"WeekendActivities",
+        "type":"radio",
+        "answers":[
+            {
+                "title":"לא מתאים",
+                "value":10
+            },
+            {
+                "title":"מתאים",
+                "value":11
+            }
+        ]
+    },
+    {
+        "title":"כיצד הינך מתנייד ביום יום",
+        "name":"Mobility",
+        "type":"checkbox",
+        "answers":[
+            {
+                "title":"בתחבורה ציבורית",
+                "value":12
+            },
+            {
+                "title":"ברכב",
+                "value":13
+            },
+            {
+                "title":"ברגל",
+                "value":14
+            }
+        ]
+    },
+    {
+        "title":"תחביבים שלי",
+        "name":"Hobbies",
+        "type":"checkbox",
+        "answers":[
+            {
+                "title":"אומנות",
+                "value":15
+            },
+            {
+                "title":"סרטים",
+                "value":16
+            },
+            {
+                "title":"מוסיקה",
+                "value":17
+            },
+            {
+                "title":"טלויזיה",
+                "value":18
+            },
+            {
+                "title":"קריאה",
+                "value":19
+            },
+            {
+                "title":"ספורט",
+                "value":20
+            },
+            {
+                "title":"תיירות וטיולים",
+                "value":21
+            },
+            {
+                "title":"משחקים",
+                "value":22
+            },
+            {
+                "title":"מכוניות ואופנועים",
+                "value":23
+            },
+            {
+                "title":"בעלי חיים",
+                "value":24
+            },
+            {
+                "title":"אופנה",
+                "value":25
+            },
+            {
+                "title":"קניות",
+                "value":26
+            },
+            {
+                "title":"בריאות ו Well Being",
+                "value":27
+            },
+            {
+                "title":"אוכל",
+                "value":28
+            },
+            {
+                "title":"יין ואלכוהול",
+                "value":29
+            },
+            {
+                "title":"עסקים",
+                "value":30
+            },
+            {
+                "title":"אקטואליה",
+                "value":31
+            },
+            {
+                "title":"מדע וטכנולוגיה",
+                "value":32
+            }
+        ]
+    },
+    {
+        "title":"סוג פעילות מבוקש",
+        "name":"ActivityType",
+        "type":"checkbox",
+        "answers":[
+            {
+                "title":"עבודה בשכר",
+                "value":33
+            },
+            {
+                "title":"התנדבות",
+                "value":34
+            },
+            {
+                "title":"פעילות פנאי",
+                "value":35
+            },
+            {
+                "title":"העשרה / לימודים",
+                "value":36
+            }
+        ]
+    },
+    {
+        "title":"כישורים / ניסיון קודם (רלווטי למי שבחר עבודה)",
+        "name":"Skills",
+        "type":"checkbox",
+        "answers":[
+            {
+                "title":"הוראה",
+                "value":37
+            },
+            {
+                "title":"מחשבים",
+                "value":38
+            },
+            {
+                "title":"כספים/בנקאות",
+                "value":39
+            },
+            {
+                "title":"מקצוע טכני",
+                "value":40
+            },
+            {
+                "title":"טיסה",
+                "value":41
+            },
+            {
+                "title":"הנהלת חשבונות",
+                "value":42
+            },
+            {
+                "title":"אומנות",
+                "value":43
+            },
+            {
+                "title":"עבודה סוציאלית",
+                "value":44
+            }
+        ]
+    },
+    {
+        "title":"תחומי עניין להתנדבות (רלוונטי למי שבחר התנדבות)",
+        "name":"VolunteerInterest",
+        "type":"checkbox",
+        "answers":[
+            {
+                "title":"פעם או פעמיים בחודש",
+                "value":45
+            },
+            {
+                "title":"פעם השבוע",
+                "value":46
+            },
+            {
+                "title":"פעמיים בשבוע",
+                "value":47
+            },
+            {
+                "title":"3 פעמים בשבוע",
+                "value":48
+            },
+            {
+                "title":"יותר מ 3 פעמים",
+                "value":49
+            },
+            {
+                "title":"פעם השבוע",
+                "value":50
+            },
+            {
+                "title":"פעמיים בשבוע",
+                "value":51
+            },
+            {
+                "title":"3 פעמים בשבוע",
+                "value":52
+            },
+            {
+                "title":"יותר מ 3 פעמים",
+                "value":53
+            }
+        ]
+    },
+    {
+        "title":"סוגי פעילות (למי שבחר פעילות פנאי)",
+        "name":"SpareTimeInterest",
+        "type":"checkbox",
+        "answers":[
+            {
+                "title":"ריקוד",
+                "value":54
+            },
+            {
+                "title":"ספורט",
+                "value":55
+            },
+            {
+                "title":"טיולים",
+                "value":56
+            },
+            {
+                "title":"אומנות",
+                "value":57
+            },
+            {
+                "title":"תרבות",
+                "value":58
+            }
+        ]
+    },
+    {
+        "title":"צרכי נגישות",
+        "name":"Accessibility",
+        "type":"checkbox",
+        "answers":[
+            {
+                "title":"מוגבלות פיזית",
+                "value":59
+            },
+            {
+                "title":"מוגבלות ראייה",
+                "value":60
+            },
+            {
+                "title":"מוגבלות שמיעה",
+                "value":61
+            }
+        ]
+    },
+    {
+        "title":"בא לי לעסוק ב- (רלוונטי למי שבחר תעסוקה)",
+        "name":"EmploymentIntrest",
+        "type":"checkbox",
+        "answers":[
+            {
+                "title":"הוראה",
+                "value":62
+            },
+            {
+                "title":"מחשבים",
+                "value":63
+            },
+            {
+                "title":"כספים/בנקאות",
+                "value":64
+            },
+            {
+                "title":"מקצוע טכני",
+                "value":65
+            },
+            {
+                "title":"טיסה",
+                "value":66
+            },
+            {
+                "title":"הנהלת חשבונות",
+                "value":67
+            },
+            {
+                "title":"אומנות",
+                "value":68
+            },
+            {
+                "title":"עבודה סוציאלית",
+                "value":69
+            }
+        ]
+    },
+    {
+        "title":"העדפות מגדר",
+        "name":"Gender",
+        "type":"radio",
+        "answers":[
+            {
+                "title":"לא משנה לי",
+                "value":70
+            },
+            {
+                "title":"נשים בלבד",
+                "value":71
+            },
+            {
+                "title":"גברים בלבד",
+                "value":72
+            }
+        ]
+    },
+    {
+        "title":"שפות",
+        "name":"languge",
+        "type":"checkbox",
+        "answers":[
+            {
+                "title":"עברית",
+                "value":73
+            },
+            {
+                "title":"אנגלית",
+                "value":74
+            },
+            {
+                "title":"רוסית",
+                "value":75
+            },
+            {
+                "title":"אמהרית",
+                "value":76
+            },
+            {
+                "title":"אידיש",
+                "value":77
+            }
+        ]
+    }
+]
+

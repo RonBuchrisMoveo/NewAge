@@ -1,0 +1,64 @@
+.results-container{
+    padding: 10px;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    .title-container{
+        margin-bottom: 20px;
+        
+    }
+    .result{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        >div{
+            .options{
+                padding: 15px;
+            }
+        }
+        .matchs{
+            .options{
+            }
+        }
+        .intrest{
+            .options{
+            }
+        }
+        .maby{
+            .options{
+            }
+        }
+       .title-activities{
+       }
+       .options{
+        display: flex;
+        justify-content: space-around;
+           >div{
+            display: flex;
+            flex-direction: column;
+               .activity-img{
+                width: 87px;
+    height: 129px;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+               }
+               .activity-name{
+
+               }
+           }
+       }
+    }
+}
+
+.swiper-wrapper{
+    flex-direction: row !important;
+}
+.swiper-pagination-horizontal{
+    justify-content: center !important;
+    flex-direction: row !important;
+    display: none !important;
+}
+.swiper-slide-active{
+    width:95px
+}

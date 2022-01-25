@@ -1,39 +1,64 @@
+
+import { Screen } from 'js/cmps/Screen';
 import { IRootState } from 'js/interfaces/rootState.interface';
 import { IUserLogin } from 'js/interfaces/userLogin.interface';
-import { setLogin } from 'js/store';
-import React, { useEffect, useState } from 'react'
+import { AuthService } from 'js/services/AuthService';
+import { setLogin, setQuesFill, setUserQues } from 'js/store';
+import React, { ChangeEventHandler, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from 'react-router';
+import { ReactComponent as Logo } from 'assets/imgs/logo.svg'
+import { Loader } from 'js/services/Loader';
 
 
 export const Login = () => {
     const dispatch = useDispatch()
-    const user = useSelector((state: IRootState) => state.data.user)
-    const [userName, setUserName] = useState('Moshe@gmail.com')
-    const [password, setPassword] = useState('ehjf7wm378')
 
-    const handleChange = ({ target }: any) => {
+    const history = useHistory()
+    const [loader, setLoader] = useState(false);
+    const [userName, setUserName] = useState('')
+    const [password, setPassword] = useState('')
+    // const [userName, setUserName] = useState('Ekatz@gmail.com')
+    // const [password, setPassword] = useState('123')
+    const userQues = useSelector((state: IRootState) => state.data.userQues)
+
+    useEffect(() => {
+        if (userQues) {
+            const quesFill = AuthService.checkQuesFill(userQues)
+            if (quesFill.length) {
+                dispatch(setQuesFill(quesFill))
+                history.push('/update-user-ques')
+            } else {
+                dispatch(setUserQues(userQues))
+                history.push('/result')
+            }
+            setLoader(true)
+        }
+    }, [userQues])
+
+    const handleChange: ChangeEventHandler<HTMLInputElement> = ({ target }) => {
         (target.name === 'userName') ?
             setUserName(target.value) :
             setPassword(target.value)
     }
-    const onLogin=()=>{
-        const user:IUserLogin={
-            User:userName,
-            Password:password
+    const onLogin = () => {
+        setLoader(true)
+        const user: IUserLogin = {
+            User: userName,
+            password: password
         }
         dispatch(setLogin(user))
     }
 
-    return (
+
+    return loader ? <Loader/> : (
         <div className='login-container'>
             <div className="container">
-                <div className="login-header">כניסה</div>
-                <form className='form' onSubmit={(e)=>{
+                <div className="login-header"><Logo/></div>
+                <form className='form' onSubmit={(e) => {
                     e.preventDefault()
                     onLogin()
-                    }}>
-                    <div className="username">שם משתמש</div>
+                }}>
                     <input
                         className='userName'
                         type='text'
@@ -43,7 +68,6 @@ export const Login = () => {
                         value={userName}
                         onChange={(e) => handleChange(e)}
                     />
-                    <div className="password">סיסמה</div>
                     <input
                         className='password'
                         type='password'
@@ -53,7 +77,8 @@ export const Login = () => {
                         value={password}
                         onChange={(e) => handleChange(e)}
                     />
-                    <button className='submit-btn' type="submit" onSubmit={onLogin} >כניסה</button>
+
+                    <button className='submit-btn' type="submit" onSubmit={onLogin} >המשך</button>
                 </form>
             </div>
         </div>

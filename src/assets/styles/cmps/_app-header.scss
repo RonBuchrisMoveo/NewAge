@@ -1,13 +1,30 @@
 .app-header {
-    background-color: #292F4C;
-    padding:15px;
+
+    background-color: $clr1;
+    padding:0 15px;
+    height: 63px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    // margin-bottom: 34px;
     .main-app{
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        .menu{
+            flex:1;
+        }
+        .welcome{
+            // flex:1;
+            color: $clr6;
+            font-size: rem(20px);
+        }
         .logo{
-            color: $clr7;
+            color: $clr6;
+            flex:1;
+            .logo-btn{
+                display: flex;
+                justify-content: flex-end;
+            }
         }
     }
 }
