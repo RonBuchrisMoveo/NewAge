@@ -2,9 +2,14 @@
     position: fixed;
     top: 50%;
     left: 50%;
-    box-shadow: 0 4px 17px 6px #0000001a;
+    box-shadow: 0 4px 17px 6px #0000003d;
     z-index: 10;
     transform: translate(-50%,-50%);
+    border-radius: 5px;
+    height: 45%;
+    width: 70%;
+    background-color: $clr6;
+    text-align: center;
     .fill-pop-up{
         display: flex;
         flex-direction: column;
@@ -12,15 +17,19 @@
         padding: 10px;
         background-color: $clr6;
         border-radius:5px ;
-        border: 1px #333 solid;
+        // border: 1px #333 solid;
         .warnning{
-
+            font-size: rem(32px);
+            margin-bottom: 25px;
         }
         .pop-up-text{
-
+            color: $clr1;
+            font-size: rem(22px);
+            margin-bottom: 20px;
         }
         .fill-pop-up-butoon-actions{
             display: flex;
+            flex-direction: column;
             width: 100%;
             bottom: 0;
             right: 0;
@@ -29,7 +38,14 @@
                 margin: 4px 2px;
                 padding: 15px 32px;
                 text-align: center;
-                width: 50%;
+                width: 100%;
+                border-radius: 50px;
+                color: $clr6;
+                font-size: rem(20px);
+            }
+            .approve{
+                background-color: $clr2;
+
             }
         }
     }

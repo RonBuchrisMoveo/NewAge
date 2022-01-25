@@ -9,8 +9,8 @@ export const FillPopUp = (props:{setIsFillPopUp:Dispatch<SetStateAction<boolean>
                 <h3 className="warnning">שים לב !</h3>
                 <p className="pop-up-text">יש צורך לענות על כל השאלות בכדי לקבל תוצאות טובות יותר</p>
                 <div className="fill-pop-up-butoon-actions">
-                <button className="forward" onClick={() => setIsFillPopUp(false)}>חזרה</button>
                 <button className="approve" onClick={() => {continueToResultPage(ques)}}>המשך</button>
+                <button className="forward" onClick={() => setIsFillPopUp(false)}>חזרה</button>
                 </div>
             </div>
         </div>

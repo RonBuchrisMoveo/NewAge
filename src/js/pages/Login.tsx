@@ -49,11 +49,10 @@ export const Login = () => {
             password: password
         }
          dispatch(setLogin(user))
-        
     }
 
 
-    return loader ? <Loader/> : (
+    return(
         <div className='login-container'>
             <div className="container">
                 <div className="login-header"><Logo/></div>

@@ -1,9 +1,12 @@
+import { setActivityToShow } from 'js/store'
 import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { useHistory, useLocation } from 'react-router'
 
 export const Screen = () => {
     const history = useHistory()
     const location =useLocation()
+    const dispatch=useDispatch()
     const [screen, setScreen] = useState(false)
 
     useEffect(() => {
@@ -13,6 +16,11 @@ export const Screen = () => {
 
     const toggleModal = () => {
         setScreen(!screen)
+        if(location.pathname===('/activity/sign-up-activity')) {
+            dispatch(setActivityToShow(null))
+            history.push('/result')
+            return
+        } 
         history.push('/')
     }
 

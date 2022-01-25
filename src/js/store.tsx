@@ -19,9 +19,7 @@ export const initialState:IInitialState = {
 }
 
 export const setLogin = createAsyncThunk('data/setLogin',async (user:IUserLogin)=>{
-    const data:{currUser:IUser,currQues:IUserQues} = await AuthService.login(user)
-    // const {currUser}=data
-    // if(!(currUser.name).length) return null
+    const data:{currUser:IUser,currQues:IUserQues}|null = await AuthService.login(user)
     return data
 })
 export const setLogout = createAsyncThunk('data/setLogout',async ()=>{
@@ -31,8 +29,8 @@ export const setUserQues = createAsyncThunk('data/setUserQues',async (ques:IUser
     const data:ISortResult = await AuthService.updateUserQues(ques)
     return data
 })
-export const setActivityToShow = createAsyncThunk('data/setActivityToShow',async (ActivityToShow:IActivityToShow)=>{
-    const data:IUserActivity = await AuthService.getActivityToShow(ActivityToShow)
+export const setActivityToShow = createAsyncThunk('data/setActivityToShow',async (ActivityToShow:IActivityToShow|null)=>{
+    const data:IUserActivity|null = await AuthService.getActivityToShow(ActivityToShow)
     return data
 })
 export const setAddUserActivity = createAsyncThunk('data/setAddUserActivity',async (addActivity:any)=>{
@@ -51,7 +49,11 @@ export const dataSlice = createSlice({
     extraReducers: (builder) => {
         builder
         .addCase(setLogin.fulfilled, (state, action)=>{
-            // if(action.payload===null) return
+            if(!action.payload){
+                state.user = action.payload
+                state.userQues = action.payload
+                return
+            }
             const {currUser,currQues} = action.payload
             state.user = currUser
             state.userQues = currQues

@@ -12,6 +12,7 @@ export function AppHeader() {
     const dispatch = useDispatch()
     const user = useSelector((state: IRootState) => state.data.user)
     const userResult = useSelector((state: IRootState) => state.data.userResult)
+    const userActivity = useSelector((state: IRootState) => state.data.userActivity)
     const [header, setHeader] = useState('')
 
     useEffect(() => {
@@ -26,6 +27,7 @@ export function AppHeader() {
     }
 
     const getHeader=()=>{
+        if(userActivity) return setHeader('בחירה מצויינת!')
         if(userResult) return setHeader(`${user?.name}, מצאנו עבורך היום:`)
         else if(user) return setHeader(`שלום ${user?.name}`)
         else return setHeader('ברוכים הבאים')

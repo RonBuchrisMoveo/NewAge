@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router'
 import { ReactComponent as Logo } from 'assets/imgs/logo.svg'
 
+
 export const SignUpActivity = () => {
     const userActivity = useSelector((state:IRootState) => state.data.userActivity)
     const history = useHistory()
@@ -24,8 +25,7 @@ export const SignUpActivity = () => {
             <div className="activity-day">בימים: {userActivity[0]['Activity Dayes']}</div>
             <div className="activity-hours">בשעות: {userActivity[0]['Activity Hours']}</div>
             <div className="divider"></div>
-            <h3 className="more-info">לפרטים נוספים:</h3>
-            <div className="contact">{userActivity[0]['Contact Name']} {userActivity[0]['Contact Phone']}</div>
+            {userActivity[0]['Contact Name'] && <><h3 className="more-info">לפרטים נוספים:</h3><div className="contact">{userActivity[0]['Contact Name']} {userActivity[0]['Contact Phone']}</div></>}
             </div>
         </div>
     )

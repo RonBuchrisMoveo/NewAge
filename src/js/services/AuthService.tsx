@@ -18,9 +18,10 @@ export const AuthService = {
   addUserActivity
 }
 
-async function login(user: IUserLogin): Promise<{currUser:IUser,currQues:IUserQues}> {
+async function login(user: IUserLogin): Promise<{currUser:IUser,currQues:IUserQues}|null> {
   try {
     const currUser = await (await axios.post(`${NEW_BASE_URL}UserAuth`, user)).data
+    if(!JSON.parse(currUser.id)) return null
     const userId={User:currUser.id}
     const currQues = await (await axios.post(`${NEW_BASE_URL}GetUserQuestionnaire`, userId)).data
     for(const key in currQues){
@@ -97,7 +98,8 @@ async function sortUserResult({Table}:any):Promise<ISortResult>{
 }
 
 
-async function getActivityToShow(activityToShow:IActivityToShow):Promise<IUserActivity>{
+async function getActivityToShow(activityToShow:IActivityToShow|null):Promise<IUserActivity|null>{
+  if(!activityToShow) return null
   const {data} = await axios.post(`${NEW_BASE_URL}GetActivity`, activityToShow)
   const {Table} =data
   return Table
