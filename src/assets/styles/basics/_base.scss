@@ -5,13 +5,17 @@
 html {
     font-family: montserrat;
     line-height: 1.6;
-    // color: $clr2;
+    color: $clr2;
+
     direction: rtl;
 }
 
 body {
     margin: 0;
+
     font-family: heebo-regular;
+
+
 }
 
 h1, h2, h3, h4, h5, h6,p {
@@ -37,7 +41,9 @@ p {
 
 a {
     text-decoration: none;
+
     color: $clr6;
+
 }
 a:hover {
     text-decoration: underline;

@@ -1,3 +1,4 @@
+
 import { Screen } from 'js/cmps/Screen';
 import { IRootState } from 'js/interfaces/rootState.interface';
 import { IUserLogin } from 'js/interfaces/userLogin.interface';
@@ -12,6 +13,7 @@ import { Loader } from 'js/services/Loader';
 
 export const Login = () => {
     const dispatch = useDispatch()
+
     const history = useHistory()
     const [loader, setLoader] = useState(false);
     const [userName, setUserName] = useState('')
@@ -48,6 +50,7 @@ export const Login = () => {
         dispatch(setLogin(user))
     }
 
+
     return loader ? <Loader/> : (
         <div className='login-container'>
             <div className="container">
@@ -74,6 +77,7 @@ export const Login = () => {
                         value={password}
                         onChange={(e) => handleChange(e)}
                     />
+
                     <button className='submit-btn' type="submit" onSubmit={onLogin} >המשך</button>
                 </form>
             </div>

@@ -1,3 +1,4 @@
+
 import { Screen } from 'js/cmps/Screen'
 import { Login } from 'js/pages/Login'
 import React from 'react'
@@ -55,7 +56,7 @@ export const MainApp = () => {
                     <img src={elal} alt="" />
                 </div>
             </div>
-            <Route path="/login" component={Login} />
+            <Route path="/login" component={Login} />                
         </div>
     )
 }

@@ -1,4 +1,5 @@
 import { createSlice, configureStore, createAsyncThunk } from "@reduxjs/toolkit";
+
 import { IActivityToShow } from "js/interfaces/activityToShow.interface";
 import { IInitialState } from "js/interfaces/initialState.interface";
 import { IUser } from "js/interfaces/user.interface";
@@ -36,7 +37,6 @@ export const setAddUserActivity = createAsyncThunk('data/setAddUserActivity',asy
     const data:IUserActivity = await AuthService.addUserActivity(addActivity)
     return data
 })
-
 
 export const dataSlice = createSlice({
     name: 'data',

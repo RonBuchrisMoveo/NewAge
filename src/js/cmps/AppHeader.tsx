@@ -1,3 +1,4 @@
+
 import { IRootState } from "js/interfaces/rootState.interface";
 import { setLogout } from "js/store";
 import { useDispatch, useSelector } from "react-redux";
@@ -29,7 +30,6 @@ export function AppHeader() {
         else if(user) return setHeader(`שלום ${user?.name}`)
         else return setHeader('ברוכים הבאים')
     }
-
 
     return (
         <header className="app-header">
