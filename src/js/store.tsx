@@ -20,6 +20,8 @@ export const initialState:IInitialState = {
 
 export const setLogin = createAsyncThunk('data/setLogin',async (user:IUserLogin)=>{
     const data:{currUser:IUser,currQues:IUserQues} = await AuthService.login(user)
+    // const {currUser}=data
+    // if(!(currUser.name).length) return null
     return data
 })
 export const setLogout = createAsyncThunk('data/setLogout',async ()=>{
@@ -49,6 +51,7 @@ export const dataSlice = createSlice({
     extraReducers: (builder) => {
         builder
         .addCase(setLogin.fulfilled, (state, action)=>{
+            // if(action.payload===null) return
             const {currUser,currQues} = action.payload
             state.user = currUser
             state.userQues = currQues
