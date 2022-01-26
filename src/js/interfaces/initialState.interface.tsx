@@ -8,5 +8,6 @@ export interface IInitialState {
     quesFill:object|null
     userResult:object|null
     userActivity:object|null
+    headerTitle:string|null
   }
 

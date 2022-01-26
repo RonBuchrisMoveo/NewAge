@@ -15,18 +15,24 @@ export const initialState:IInitialState = {
     userQues:null,
     quesFill:null,
     userResult:null,
-    userActivity:null
+    userActivity:null,
+    headerTitle:null
 }
 
-export const setLogin = createAsyncThunk('data/setLogin',async (user:IUserLogin)=>{
+export const setLogin = createAsyncThunk('data/setLogin',async (user:IUserLogin|null)=>{
     const data:{currUser:IUser,currQues:IUserQues}|null = await AuthService.login(user)
     return data
 })
 export const setLogout = createAsyncThunk('data/setLogout',async ()=>{
+    localStorage.clear()
     return null
 })
 export const setUserQues = createAsyncThunk('data/setUserQues',async (ques:IUserQues)=>{
     const data:ISortResult = await AuthService.updateUserQues(ques)
+    return data
+})
+export const setUserResult = createAsyncThunk('data/setUserResult',async ()=>{
+    const data:ISortResult = await AuthService.getUserResult(null)
     return data
 })
 export const setActivityToShow = createAsyncThunk('data/setActivityToShow',async (ActivityToShow:IActivityToShow|null)=>{
@@ -44,6 +50,9 @@ export const dataSlice = createSlice({
     reducers: {
         setQuesFill:(state,action)=>{
             state.quesFill = action.payload
+        },
+        setHeaderTitle:(state,action)=>{
+            state.headerTitle = action.payload
         }
     },
     extraReducers: (builder) => {
@@ -67,9 +76,11 @@ export const dataSlice = createSlice({
         .addCase(setUserQues.fulfilled, (state, action)=>{
             state.userResult=action.payload 
         })
+        .addCase(setUserResult.fulfilled, (state, action)=>{
+            state.userResult=action.payload 
+        })
         .addCase(setActivityToShow.fulfilled, (state, action)=>{
             state.userActivity=action.payload 
-            
         })
         // .addCase(setAddUserActivity.fulfilled, (state, action)=>{
         // })
@@ -85,6 +96,6 @@ const store = configureStore({
 type RootState = ReturnType<typeof store.getState>
 
 // export const selectCar = (state: RootState) => state.data
-export const {setQuesFill} = dataSlice.actions
+export const {setQuesFill,setHeaderTitle} = dataSlice.actions
 
 export default store

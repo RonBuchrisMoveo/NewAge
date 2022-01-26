@@ -16,12 +16,14 @@ export const QuesFill = (props: { userQues: IUserQues }) => {
     const quesFill = useSelector((state:IRootState) => state.data.quesFill)
     const [ques, setQues] = useState<any>(userQues)
     const [isFillPopUp, setIsFillPopUp] = useState(false)
+    const currUserQues:any= {...ques}
+    const RELEVANT_QUE:any=[]
     
+
     const handleChange=({target}:any)=>{
         const name:string = target.name
         const type:string =target.type
         const value:number = +(target.value)
-        const currUserQues:any= {...ques}
         if(name==='questions'){
             checkTheQues(ques)
         }else{
@@ -80,8 +82,22 @@ export const QuesFill = (props: { userQues: IUserQues }) => {
                 e.preventDefault()
                 handleChange(e)}}>
                     {Ques.map((que:any,idx:number)=>{
-                        return <div key={idx} className={`question que-${idx+1}`}>
-                            <h4 className={`${que.name} ${quesFill.includes(que.name) && 'not-fill'}`}>{que.title}</h4>
+                            if(idx===5){
+                                if(!currUserQues[que.name].includes(que.answers[0].value)){
+                                    RELEVANT_QUE.push(6)
+                                }
+                                if(!currUserQues[que.name].includes(que.answers[1].value)){
+                                    RELEVANT_QUE.push(7)
+                                }
+                                if(!currUserQues[que.name].includes(que.answers[2].value)){
+                                    RELEVANT_QUE.push(8)
+                                }
+                                if(!currUserQues[que.name].includes(que.answers[3].value)){
+                                    RELEVANT_QUE.push(10)
+                                }
+                            }
+                        return (!RELEVANT_QUE.includes(idx)) && <div key={idx} className={`question que-${idx+1}`}>
+                            <h4 className={`${que.name}`}>{que.title}</h4>
                             {que.answers.map((ans:any)=>{
                                 return <p key={ans.value}><input name={que.name} type={que.type} className={`ques ques${idx+1}`} onChange={(e) => handleChange(e)} value={ans.value} checked={(ques[que.name].includes(ans.value)) ? true : false} />{ans.title}</p>
                             })}

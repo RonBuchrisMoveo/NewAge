@@ -23,7 +23,7 @@ export const UserResultPreview = (props: { activities: any, userId: string, opti
             ActivityID:optionId
         }
         dispatch(setActivityToShow(activityToShow))
-        history.push('/activity')
+        history.push(`/activity/${activityToShow.ActivityID}`)
     }
 
     return (

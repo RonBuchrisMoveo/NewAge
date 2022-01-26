@@ -4,8 +4,9 @@ export const Loader = () => {
     return (
         <div className="loader-container">
             <div className="logo">
-            <LoaderLogo/>
+                <LoaderLogo />
             </div>
-        </div>
+            
+            </div>
     )
 }

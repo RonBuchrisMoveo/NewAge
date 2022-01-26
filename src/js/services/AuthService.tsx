@@ -15,18 +15,26 @@ export const AuthService = {
   checkQuesFill,
   updateUserQues,
   getActivityToShow,
-  addUserActivity
+  addUserActivity,
+  getUserResult
 }
 
-async function login(user: IUserLogin): Promise<{currUser:IUser,currQues:IUserQues}|null> {
+async function login(user: IUserLogin|null): Promise<{currUser:IUser,currQues:IUserQues}|null> {
+  const userFromLocalStorage= localStorage.getItem('user')
+  let currUser:any
   try {
-    const currUser = await (await axios.post(`${NEW_BASE_URL}UserAuth`, user)).data
-    if(!JSON.parse(currUser.id)) return null
-    const userId={User:currUser.id}
+    if(!userFromLocalStorage){
+      currUser = await (await axios.post(`${NEW_BASE_URL}UserAuth`, user)).data
+      if(!JSON.parse(currUser.id)) return null
+      _saveUser(currUser)
+    }else{
+      currUser=JSON.parse(userFromLocalStorage)
+    }
+      const userId={User:currUser.id}
     const currQues = await (await axios.post(`${NEW_BASE_URL}GetUserQuestionnaire`, userId)).data
     for(const key in currQues){
       if(key ==='UserId') continue 
-      if(currQues[key]===''||currQues[key]==='70'||currQues[key]==='71'||currQues[key]==='72'){
+      if(currQues[key]===''){
         currQues[key]=[]
       }else{
         const answer = JSON.parse(currQues[key])
@@ -38,12 +46,16 @@ async function login(user: IUserLogin): Promise<{currUser:IUser,currQues:IUserQu
       }
     }
     const data = { currUser, currQues }
-
     return data
   } catch (err) {
     throw err
   }
 }
+
+function _saveUser(user:any){
+  localStorage.setItem('user', JSON.stringify(user))
+}
+
 async function updateUserQues(ques: IUserQues): Promise<any> {
   let userResult:any
   try {
@@ -58,12 +70,21 @@ async function updateUserQues(ques: IUserQues): Promise<any> {
 }
 
 
-async function getUserResult(userId:string):Promise<ISortResult>{
-  const user={
-    UserID:userId
+async function getUserResult(userId:string|null):Promise<ISortResult>{
+  let user:object
+  const userFromLocalStorage:any= localStorage.getItem('user')
+  const currUser = JSON.parse(userFromLocalStorage)
+  if(userFromLocalStorage){
+    user={
+      UserID:(currUser.id).toString()
+    }
+  } else{
+     user={
+      UserID:userId
+    }
   }
   const {data} = await axios.post(`${NEW_BASE_URL}GetUserResult`, user)
-const sortResult = await sortUserResult(data)
+  const sortResult = await sortUserResult(data)
   return sortResult
 }
 

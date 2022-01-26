@@ -13,17 +13,17 @@ import { IRootState } from 'js/interfaces/rootState.interface'
 
 export const MainApp = () => {
     const history = useHistory()
-    const user = useSelector((state:IRootState) => state.data.user)
+    const user = useSelector((state: IRootState) => state.data.user)
 
-const getButtonName=()=>{
-    if(user) return 'לפעילויות'
-    else return 'יאללה מתחילים'
-}
-const getButtonPath=()=>{
-    if(user) return history.push('/result')
-    else return history.push('/login')
-}
-
+    const getButtonName = () => {
+        if (user) return 'לפעילויות'
+        else return 'יאללה מתחילים'
+    }
+    const getButtonPath = () => {
+        if (user) return history.push('/result')
+        else return history.push('/login')
+    }
+    
     return (
         <div className='main-app'>
             <Screen />
@@ -69,7 +69,7 @@ const getButtonPath=()=>{
                     <img src={elal} alt="" />
                 </div>
             </div>
-            <Route path="/login" component={Login} />               
+            <Route path="/login" component={Login} />
         </div>
     )
 }

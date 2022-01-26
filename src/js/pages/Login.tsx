@@ -24,13 +24,13 @@ export const Login = () => {
     useEffect(() => {
         if (userQues) {
             const quesFill = AuthService.checkQuesFill(userQues)
-            if (quesFill.length) {
+            // if (quesFill.length) {
                 dispatch(setQuesFill(quesFill))
                 history.push('/update-user-ques')
-            } else {
-                dispatch(setUserQues(userQues))
-                history.push('/result')
-            }
+            // } else {
+            //     dispatch(setUserQues(userQues))
+            //     history.push('/result')
+            // }
             setLoader(true)
         }
     }, [userQues])
